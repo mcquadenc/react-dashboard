@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Datagrid, TextField, EmailField } from 'react-admin';
 import withStyles from '@material-ui/core/styles/withStyles';
 
@@ -18,20 +18,26 @@ const listStyles = {
     },
 };
 
-const FotoListDesktop = ({ classes, ...props }) => (
-    <Datagrid
-        rowClick="edit"
-        rowStyle={rowStyle}
-        classes={{ headerRow: classes.headerRow }}
-        {...props}
-    >
+class FotoListDesktop extends Component {
+    render() {
+        const { classes, ...props } = this.props;
+        console.log(this.props);
+        return (
+            <Datagrid
+                rowClick="edit"
+                rowStyle={rowStyle}
+                classes={{ headerRow: classes.headerRow }}
+                {...props}
+            >
 
-        <TextField source="id" />
-        <TextField source="title" />
-        <TextField source="url" />
-        <TextField source="thumbnailUrl" />
+                <TextField source="id" />
+                <TextField source="title" />
+                <TextField source="url" />
+                <TextField source="thumbnailUrl" />
 
-    </Datagrid>
-);
+            </Datagrid>
+		);
+	}
+}
 
 export default withStyles(listStyles)(FotoListDesktop);

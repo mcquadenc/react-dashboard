@@ -20,7 +20,6 @@ const showStyle = theme => ({
 class FotoCard extends Component {
     render() {
     const { classes, record,  ...props } = this.props;
-    console.log(this.props);
     return (
         <Card className={classes.root}>
             <CardContent className={classes.content}>
