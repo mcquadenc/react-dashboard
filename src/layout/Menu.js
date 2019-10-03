@@ -18,6 +18,7 @@ import {
 // import products from '../products';
 // import categories from '../categories';
 import users from '../users';
+import linapix from '../linapix';
 import SubMenu from './SubMenu';
 
 class Menu extends Component {
@@ -48,6 +49,13 @@ class Menu extends Component {
                     leftIcon={<users.icon />}
                     onClick={onMenuClick}
                 />
+                <MenuItemLink
+                    to={`/photos`}
+                    primaryText={`LinaPix`}
+                    leftIcon={<linapix.icon />}
+                    onClick={onMenuClick}
+                />
+
                 <Responsive
                     small={logout}
                     medium={null} // Pass null to render nothing on larger devices
