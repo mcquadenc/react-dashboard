@@ -23,7 +23,7 @@ const styles = theme =>
             marginRight: 0,
         },
         listWithDrawer: {
-            marginRight: 400,
+            marginRight: 600,
         },
     });
 

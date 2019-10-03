@@ -4,6 +4,8 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import FotoCard from './FotoCard';
+
 const showStyle = theme => ({
     root: {
         paddingTop: 40,
@@ -12,11 +14,11 @@ const showStyle = theme => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        margin: '1em',
+        margin: '0.5em',
     },
     show: {
         [theme.breakpoints.up('xs')]: {
-            width: 400,
+            width: 600,
         },
         [theme.breakpoints.down('xs')]: {
             width: '100vw',
@@ -28,7 +30,7 @@ const showStyle = theme => ({
 
 class UserShow extends Component {
     render() {
-        const { classes, onCancel,  ...props } = this.props;
+		const { classes, onCancel,  ...props } = this.props;
 		return (
 			<Fragment>
 	            <div className={classes.root}>
@@ -42,9 +44,10 @@ class UserShow extends Component {
 	                </div>
 	            </div>
 
-
 			    <Show {...props} className={classes.show}>
 			        <SimpleShowLayout>
+						<FotoCard />
+
 			            <TextField source="name" />
 			            <TextField source="username" />
 			            <TextField source="email" />
