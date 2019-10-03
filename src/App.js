@@ -6,6 +6,7 @@ import './App.css';
 import { Login, Layout } from './layout';
 import UserList from './users';
 import FotoList from './linapix'
+import authProvider from './authProvider'; 
 
 const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
 
@@ -16,6 +17,7 @@ class App extends Component {
 				dataProvider={dataProvider}
 				loginPage={Login}
 				appLayout={Layout}
+				authProvider={authProvider} 
 			>
 				<Resource name="users" {...UserList} />
 				<Resource name="photos" {...FotoList} />
