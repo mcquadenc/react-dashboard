@@ -28,15 +28,15 @@ const showStyle = theme => ({
 
 });
 
-class UserShow extends Component {
+class FotoShow extends Component {
     render() {
-        const { classes, onCancel, push,  ...props } = this.props;
+		const { classes, onCancel,  ...props } = this.props;
 		return (
 			<Fragment>
 	            <div className={classes.root}>
 	                <div className={classes.title}>
 	                    <Typography variant="title">
-	                    	Detalhe User
+	                    	Detalhe Foto
 	                    </Typography>
 	                    <IconButton onClick={onCancel}>
 	                        <CloseIcon />
@@ -48,9 +48,14 @@ class UserShow extends Component {
 			        <SimpleShowLayout>
 						<FotoCard />
 
-			            <TextField source="name" />
-			            <TextField source="username" />
-			            <TextField source="email" />
+			            <TextField source="title" />
+			            <TextField source="url" />
+			            <TextField source="thumbnailUrl" />
+			            <TextField source="thumbnailUrl" />
+			            <TextField source="thumbnailUrl" />
+			            <TextField source="thumbnailUrl" />
+			            <TextField source="thumbnailUrl" />
+			            <TextField source="thumbnailUrl" />
 			        </SimpleShowLayout>
 			    </Show>
 			</Fragment>
@@ -58,4 +63,4 @@ class UserShow extends Component {
 	}
 }
 
-export default withStyles(showStyle)(UserShow);
+export default withStyles(showStyle)(FotoShow);

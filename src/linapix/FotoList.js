@@ -5,16 +5,11 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import { Route } from 'react-router';
 import Drawer from '@material-ui/core/Drawer';
-import { List, Responsive, ReferenceInput, ReferenceArrayInput,  TextInput, Filter, SelectInput, CheckboxGroupInput } from 'react-admin';
+import { List, Responsive } from 'react-admin';
 import { createStyles, withStyles } from '@material-ui/core/styles';
-import UserListDesktop from './UserListDesktop'
-import UserShow from './UserShow'
-import { withDataProvider } from 'react-admin';
-import { FavoriteBorder, Favorite } from '@material-ui/icons';
-import Chip from '@material-ui/core/Chip';
-import CheckBoxTag from './CheckBoxTag';
-// import Tag from './Tag'
 
+import FotoListDesktop from './FotoListDesktop'
+import FotoShow from './FotoShow'
 
 const styles = theme =>
     createStyles({
@@ -33,30 +28,13 @@ const styles = theme =>
         },
     });
 
-class UserFilter extends Component {
-    render() {
-        const {...props} = this.props;
-        // console.log(props);
-        return (
-            <Filter {...props}>
-                <TextInput label="Search" source="q" alwaysOn />
-                <ReferenceArrayInput label="User" source="id" reference="users" allowEmpty  alwaysOn>
-                    <CheckboxGroupInput 
-                        optionText={<CheckBoxTag label='name' source='id' filterValues={props.filterValues} />} />
-                </ReferenceArrayInput>
 
-            </Filter>
-        );
-    }
-}
-
-class UserList extends Component {
+class FotoList extends Component {
     render() {
         const { classes, ...props } = this.props;
-        // console.log(this);
         return (
             <div className={classes.root}>
-                <Route path="/users/:id">
+                <Route path="/photos/:id">
                     {({ match }) => {
                         const isMatch = !!(
                             match &&
@@ -67,7 +45,6 @@ class UserList extends Component {
                         return (
                             <Fragment>
                                 <List
-                                    filters={<UserFilter />}
                                     {...props}
                                     className={classnames(classes.list, {
                                         [classes.listWithDrawer]: isMatch,
@@ -80,7 +57,7 @@ class UserList extends Component {
                                     sort={{ field: 'date', order: 'DESC' }}
                                 >
                                     <Responsive
-                                        medium={<UserListDesktop />}
+                                        medium={<FotoListDesktop />}
                                     />
                                 </List>
                                 <Drawer
@@ -94,7 +71,7 @@ class UserList extends Component {
                                 >
                                     {/* To avoid any errors if the route does not match, we don't render at all the component in this case */}
                                     {isMatch ? (
-                                        <UserShow
+                                        <FotoShow
                                             id={match.params.id}
                                             onCancel={this.handleClose}
                                             {...props}
@@ -110,7 +87,7 @@ class UserList extends Component {
     }
 
     handleClose = () => {
-        this.props.push('/users');
+        this.props.push('/photos');
     };
 }
 
@@ -120,4 +97,4 @@ export default compose(
         { push }
     ),
     withStyles(styles)
-)(UserList);
+)(FotoList);

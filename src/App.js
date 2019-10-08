@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Admin, Resource } from 'react-admin';
-
-import './App.css';
-
-import UserList from './users';
 import jsonServerProvider from './ra-data-json-server';
 
+import './App.css';
 import { Login, Layout } from './layout';
+import UserList from './users';
+import FotoList from './linapix'
+import authProvider from './authProvider'; 
 
 import {
     fetchUtils,
@@ -54,8 +54,10 @@ class App extends Component {
 				dataProvider={dataProvider}
 				loginPage={Login}
 				appLayout={Layout}
+				authProvider={authProvider} 
 			>
 				<Resource name="users" {...UserList} />
+				<Resource name="photos" {...FotoList} />
 			</Admin>
         );
     }
