@@ -4,6 +4,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+
 const showStyle = theme => ({
     root: {
         paddingTop: 40,
@@ -28,7 +29,7 @@ const showStyle = theme => ({
 
 class UserShow extends Component {
     render() {
-        const { classes, onCancel,  ...props } = this.props;
+        const { classes, onCancel, push,  ...props } = this.props;
 		return (
 			<Fragment>
 	            <div className={classes.root}>
