@@ -4,7 +4,7 @@ export default (type, params) => {
     // called when the user attempts to log in
     if (type === AUTH_LOGIN) {
         /*
-        const oauth_provider = 'https://ftprod.prpr.mpf.mp.br/oauth2/';
+        const oauth_provider = 'https://localhost/oauth2/';
         if (type === AUTH_LOGIN) {
             const { username, password } = params;
             const request = new Request(oauth_provider, {
